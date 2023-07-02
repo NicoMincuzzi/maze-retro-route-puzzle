@@ -16,7 +16,7 @@ public class LoseState implements MazeState<MazeRetroRoute> {
 
     @Override
     public void execute() {
-        logger.info("I'm sorry! You haven't found new objects!");
+        System.out.println("I'm sorry! You haven't found new objects!");
         maze.changeStateMazeFsm(new LeaveState());
     }
 }

@@ -32,9 +32,9 @@ public class GameResult {
     }
 
     public static void show(Map<String, GameResult> foundItems) {
-        logger.info("+----+-------------+--------------------+");
-        logger.info("| ID | Room        | Object Collected   |");
-        logger.info("+----+-------------+--------------------+");
+        System.out.println("+----+-------------+--------------------+");
+        System.out.println("| ID | Room        | Object Collected   |");
+        System.out.println("+----+-------------+--------------------+");
 
         for (String idStepRoute : foundItems.keySet()) {
             String items = null;
@@ -43,11 +43,11 @@ public class GameResult {
                 items = removeLastComma(item.concat(","));
             }
 
-            logger.info("| " + foundItems.get(idStepRoute).getId() +
+            System.out.println("| " + foundItems.get(idStepRoute).getId() +
                     "  | " + foundItems.get(idStepRoute).getRoom() +
                     " | " + items + "|");
         }
-        logger.info("+----+-------------+--------------------+");
+        System.out.println("+----+-------------+--------------------+");
     }
 
     private static String removeLastComma(String listWords) {

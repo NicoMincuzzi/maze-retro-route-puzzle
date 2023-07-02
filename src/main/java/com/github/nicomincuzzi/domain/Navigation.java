@@ -1,9 +1,11 @@
 package com.github.nicomincuzzi.domain;
 
 import com.github.nicomincuzzi.maze.Room;
-import com.github.nicomincuzzi.maze.Utensil;
 
-import java.util.*;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Navigation {
 
@@ -19,27 +21,10 @@ public class Navigation {
     }
 
     public Map<String, GameResult> searchItemsMaze(Room roomMaze) {
-        List<String> foundItems = new ArrayList<>();
-
-        for (String item : findingItems) {
-            if (roomMaze == null) {
-                continue;
-            }
-            for (Utensil itemRoom : roomMaze.getObjects()) {
-                if (itemRoom.isSameThan(item)) {
-                    foundItems.add(itemRoom.getName());
-                }
-            }
-
-        }
-
-        if (foundItems.isEmpty())
-            foundItems.add("None");
-
         if (roomMaze != null) {
-            GameResult gameResult = new GameResult(roomMaze.getId(),
-                    roomMaze.getName(),
-                    foundItems);
+            List<String> foundItems = roomMaze.searchItemsMaze(findingItems);
+
+            GameResult gameResult = new GameResult(roomMaze.getId(), roomMaze.getName(), foundItems);
             outputMaze.put(UUID.randomUUID().toString(), gameResult);
 
             mazeNavigation(roomMaze);

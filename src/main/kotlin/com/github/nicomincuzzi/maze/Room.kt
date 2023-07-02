@@ -1,5 +1,8 @@
 package com.github.nicomincuzzi.maze
 
+import com.github.nicomincuzzi.domain.GameResult
+import java.util.*
+
 data class Room(
         val id: Int = 3,
         val name: String = "Kitchen",
@@ -9,4 +12,17 @@ data class Room(
         var west: Int? = null,
         val objects: List<Utensil> = listOf()
 ){
+
+    fun searchItemsMaze(findingItems: List<String>): List<String> {
+        val foundItems: MutableList<String> = ArrayList()
+        for (item in findingItems) {
+            for (itemRoom in objects) {
+                if (itemRoom.isSameThan(item!!)) {
+                    foundItems.add(itemRoom.name)
+                }
+            }
+        }
+        if (foundItems.isEmpty()) foundItems.add("None")
+        return foundItems
+    }
 }

@@ -32,16 +32,16 @@ public class InsertState implements MazeState<MazeRetroRoute> {
 
     @Override
     public void execute() {
-        logger.info("Input start room ID: ");
+        System.out.println("Input start room ID: ");
         int roomNumber = parseInt(scanner.nextLine());
 
         Room roomMaze = mazeMap.getRooms().getRoomById(roomNumber);
 
         if (roomMaze == null) {
-            logger.info("Please insert a valid room number!");
+            System.out.println("Please insert a valid room number!");
             maze.changeStateMazeFsm(new LeaveState());
         } else {
-            logger.info("Input objects to collect: ");
+            System.out.println("Input objects to collect: ");
             String objToCollect = scanner.nextLine();
             List<String> findingItems = StringHandler.getInstance().getListInputWords(objToCollect);
 
