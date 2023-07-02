@@ -1,7 +1,7 @@
 package com.github.nicomincuzzi.domain.fsm;
 
 import com.github.nicomincuzzi.domain.GameResult;
-import com.github.nicomincuzzi.domain.ManagerMaze;
+import com.github.nicomincuzzi.domain.MazeRetroRoute;
 import com.github.nicomincuzzi.domain.MazeMap;
 import com.github.nicomincuzzi.domain.Navigation;
 import com.github.nicomincuzzi.maze.Room;
@@ -9,9 +9,9 @@ import com.github.nicomincuzzi.maze.Room;
 import java.util.List;
 import java.util.Map;
 
-public class PlayState implements MazeState<ManagerMaze> {
+public class PlayState implements MazeState<MazeRetroRoute> {
 
-    private ManagerMaze maze;
+    private MazeRetroRoute maze;
     private final List<String> findingItems;
     private final MazeMap mazeMap;
     private final Room roomMaze;
@@ -23,7 +23,7 @@ public class PlayState implements MazeState<ManagerMaze> {
     }
 
     @Override
-    public void enter(ManagerMaze maze) {
+    public void enter(MazeRetroRoute maze) {
         this.maze = maze;
     }
 
@@ -33,7 +33,7 @@ public class PlayState implements MazeState<ManagerMaze> {
 
         Map<String, GameResult> foundItems = navMap.searchItemsMaze(roomMaze);
 
-        MazeState<ManagerMaze> state = isFoundItem(foundItems) ? new WinState() : new LoseState();
+        MazeState<MazeRetroRoute> state = isFoundItem(foundItems) ? new WinState() : new LoseState();
 
         GameResult.show(foundItems);
 

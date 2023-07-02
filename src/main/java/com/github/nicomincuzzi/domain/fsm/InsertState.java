@@ -1,6 +1,6 @@
 package com.github.nicomincuzzi.domain.fsm;
 
-import com.github.nicomincuzzi.domain.ManagerMaze;
+import com.github.nicomincuzzi.domain.MazeRetroRoute;
 import com.github.nicomincuzzi.domain.MazeMap;
 import com.github.nicomincuzzi.maze.Room;
 import com.github.nicomincuzzi.utils.StringHandler;
@@ -12,9 +12,9 @@ import java.util.Scanner;
 
 import static java.lang.Integer.parseInt;
 
-public class InsertState implements MazeState<ManagerMaze> {
+public class InsertState implements MazeState<MazeRetroRoute> {
 
-    private ManagerMaze maze;
+    private MazeRetroRoute maze;
     private final MazeMap mazeMap;
     private final Scanner scanner;
 
@@ -26,7 +26,7 @@ public class InsertState implements MazeState<ManagerMaze> {
     }
 
     @Override
-    public void enter(ManagerMaze maze) {
+    public void enter(MazeRetroRoute maze) {
         this.maze = maze;
     }
 

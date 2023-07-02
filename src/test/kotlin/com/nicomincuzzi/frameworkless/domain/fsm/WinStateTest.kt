@@ -1,6 +1,6 @@
 package com.github.nicomincuzzi.domain.fsm
 
-import com.github.nicomincuzzi.domain.ManagerMaze
+import com.github.nicomincuzzi.domain.MazeRetroRoute
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 import org.mockito.ArgumentCaptor
@@ -10,14 +10,14 @@ import org.mockito.Mockito.verify
 internal class WinStateTest {
     @Test
     fun executeWinState() {
-        val managerMaze = mock(ManagerMaze::class.java)
+        val mazeRetroRoute = mock(MazeRetroRoute::class.java)
 
         val winState = WinState()
-        winState.enter(managerMaze)
+        winState.enter(mazeRetroRoute)
         winState.execute()
 
         val argument: ArgumentCaptor<WinState> = ArgumentCaptor.forClass(WinState::class.java)
-        verify(managerMaze).changeStateMazeFsm(argument.capture())
+        verify(mazeRetroRoute).changeStateMazeFsm(argument.capture())
         assertTrue(argument.value is LeaveState)
     }
 }

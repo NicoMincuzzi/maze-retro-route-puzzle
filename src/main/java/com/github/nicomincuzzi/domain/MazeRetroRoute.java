@@ -4,11 +4,11 @@ import com.github.nicomincuzzi.domain.fsm.MazeFsm;
 import com.github.nicomincuzzi.domain.fsm.MazeState;
 import com.github.nicomincuzzi.domain.fsm.StartState;
 
-public class ManagerMaze {
+public class MazeRetroRoute {
 
-    private final MazeFsm<ManagerMaze> mazeFsm;
+    private final MazeFsm<MazeRetroRoute> mazeFsm;
 
-    public ManagerMaze(MazeFsm<ManagerMaze> mazeFsm) {
+    public MazeRetroRoute(MazeFsm<MazeRetroRoute> mazeFsm) {
         this.mazeFsm = mazeFsm;
     }
 
@@ -16,7 +16,7 @@ public class ManagerMaze {
         mazeFsm.startMazeRoutePuzzle(this, new StartState());
     }
 
-    public void changeStateMazeFsm(MazeState<ManagerMaze> state) {
+    public void changeStateMazeFsm(MazeState<MazeRetroRoute> state) {
         mazeFsm.changeState(state);
     }
 }

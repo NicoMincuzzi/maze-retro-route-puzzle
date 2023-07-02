@@ -1,16 +1,16 @@
 package com.github.nicomincuzzi.domain.fsm;
 
-import com.github.nicomincuzzi.domain.ManagerMaze;
+import com.github.nicomincuzzi.domain.MazeRetroRoute;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class LoseState implements MazeState<ManagerMaze> {
-    private ManagerMaze maze;
+public class LoseState implements MazeState<MazeRetroRoute> {
+    private MazeRetroRoute maze;
 
     private static final Logger logger = LoggerFactory.getLogger(LoseState.class);
 
     @Override
-    public void enter(ManagerMaze maze) {
+    public void enter(MazeRetroRoute maze) {
         this.maze = maze;
     }
 

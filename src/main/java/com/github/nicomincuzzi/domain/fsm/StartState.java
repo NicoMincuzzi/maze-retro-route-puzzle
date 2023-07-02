@@ -1,18 +1,18 @@
 package com.github.nicomincuzzi.domain.fsm;
 
-import com.github.nicomincuzzi.domain.ManagerMaze;
+import com.github.nicomincuzzi.domain.MazeRetroRoute;
 import com.github.nicomincuzzi.domain.MazeMap;
 
 import java.util.Scanner;
 
-public class StartState implements MazeState<ManagerMaze> {
+public class StartState implements MazeState<MazeRetroRoute> {
 
-    private ManagerMaze maze;
+    private MazeRetroRoute maze;
 
     Scanner scanner = new Scanner(System.in);
 
     @Override
-    public void enter(ManagerMaze maze) {
+    public void enter(MazeRetroRoute maze) {
         this.maze = maze;
     }
 

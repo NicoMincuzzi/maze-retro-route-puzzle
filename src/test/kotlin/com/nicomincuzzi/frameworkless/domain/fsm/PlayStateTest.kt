@@ -1,6 +1,6 @@
 package com.nicomincuzzi.frameworkless.domain.fsm
 
-import com.github.nicomincuzzi.domain.ManagerMaze
+import com.github.nicomincuzzi.domain.MazeRetroRoute
 import com.github.nicomincuzzi.domain.MazeMap
 import com.github.nicomincuzzi.domain.fsm.LoseState
 import com.github.nicomincuzzi.domain.fsm.PlayState
@@ -19,28 +19,28 @@ class PlayStateTest {
     @Test
     fun winInPlayState() {
         val room = Room(objects = listOf(Utensil(name = "Knife")))
-        val managerMaze = mock(ManagerMaze::class.java)
+        val mazeRetroRoute = mock(MazeRetroRoute::class.java)
 
         val playState = PlayState(listOf("Knife"), MazeMap.empty(), room)
-        playState.enter(managerMaze)
+        playState.enter(mazeRetroRoute)
         playState.execute()
 
         val argument: ArgumentCaptor<WinState> = ArgumentCaptor.forClass(WinState::class.java)
-        verify(managerMaze).changeStateMazeFsm(argument.capture())
+        verify(mazeRetroRoute).changeStateMazeFsm(argument.capture())
         assertTrue(argument.value is WinState)
     }
 
     @Test
     fun loseInPlayState() {
         val room = Room(objects = listOf(Utensil(name = "Knife")))
-        val managerMaze = mock(ManagerMaze::class.java)
+        val mazeRetroRoute = mock(MazeRetroRoute::class.java)
 
         val playState = PlayState(listOf("Fork"), MazeMap.empty(), room)
-        playState.enter(managerMaze)
+        playState.enter(mazeRetroRoute)
         playState.execute()
 
         val argument: ArgumentCaptor<LoseState> = ArgumentCaptor.forClass(LoseState::class.java)
-        verify(managerMaze).changeStateMazeFsm(argument.capture())
+        verify(mazeRetroRoute).changeStateMazeFsm(argument.capture())
         assertTrue(argument.value is LoseState)
     }
 }
