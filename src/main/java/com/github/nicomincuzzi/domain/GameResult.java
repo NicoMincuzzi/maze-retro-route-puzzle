@@ -37,7 +37,7 @@ public class GameResult {
         System.out.println("+----+-------------+--------------------+");
 
         for (String idStepRoute : foundItems.keySet()) {
-            String items = null;
+            String items = "None";
 
             for (String item : foundItems.get(idStepRoute).getItems()) {
                 items = removeLastComma(item.concat(","));

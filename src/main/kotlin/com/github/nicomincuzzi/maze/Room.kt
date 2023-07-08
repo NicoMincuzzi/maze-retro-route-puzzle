@@ -18,7 +18,6 @@ data class Room(
             objects.firstOrNull { it.isSameThan(item) }
                     ?.let { u -> foundItems.add(u.name) }
         }
-        if (foundItems.isEmpty()) foundItems.add("None")
         return foundItems
     }
 }

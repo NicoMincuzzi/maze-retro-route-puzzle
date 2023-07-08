@@ -13,11 +13,12 @@ public class Navigation {
     private final LinkedHashMap<String, GameResult> outputMaze;
     private final List<String> findingItems;
     private final MazeMap mazeMap;
+    private int counter;
 
     public Navigation(List<String> findingItems, MazeMap mazeMap) {
         this.findingItems = findingItems;
         this.mazeMap = mazeMap;
-
+        counter = findingItems.size();
         outputMaze = new LinkedHashMap<>();
     }
 
@@ -28,12 +29,18 @@ public class Navigation {
             GameResult gameResult = new GameResult(roomMaze.getId(), roomMaze.getName(), foundItems);
             outputMaze.put(randomUUID().toString(), gameResult);
 
+            if (!foundItems.isEmpty())
+                counter--;
+
             mazeNavigation(roomMaze);
         }
         return outputMaze;
     }
 
     private void mazeNavigation(Room roomMaze) {
+        if (counter == 0)
+            return;
+
         if (roomMaze.getNorth() != null) {
             int nextRoom = roomMaze.getNorth();
             roomMaze.setNorth(null);
