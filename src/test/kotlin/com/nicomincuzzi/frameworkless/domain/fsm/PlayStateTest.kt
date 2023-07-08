@@ -3,8 +3,8 @@ package com.nicomincuzzi.frameworkless.domain.fsm
 import com.github.nicomincuzzi.domain.MazeMap
 import com.github.nicomincuzzi.domain.MazeRetroRoute
 import com.github.nicomincuzzi.domain.Rooms
+import com.github.nicomincuzzi.domain.Utensil
 import com.github.nicomincuzzi.maze.Room
-import com.github.nicomincuzzi.maze.Utensil
 import com.github.nicomincuzzi.usecase.LoseState
 import com.github.nicomincuzzi.usecase.PlayState
 import com.github.nicomincuzzi.usecase.WinState
@@ -19,7 +19,7 @@ class PlayStateTest {
 
     @Test
     fun winInPlayState() {
-        val room = Room(objects = listOf(Utensil(name = "Knife")))
+        val room = Room(objects = listOf(Utensil("Knife")))
         val mazeRetroRoute = mock(MazeRetroRoute::class.java)
 
         val playState = PlayState(listOf("Knife"), MazeMap(Rooms(room)), room)
@@ -33,7 +33,7 @@ class PlayStateTest {
 
     @Test
     fun loseInPlayState() {
-        val room = Room(objects = listOf(Utensil(name = "Knife")))
+        val room = Room(objects = listOf(Utensil("Knife")))
         val mazeRetroRoute = mock(MazeRetroRoute::class.java)
 
         val playState = PlayState(listOf("Fork"), MazeMap(Rooms(room)), room)

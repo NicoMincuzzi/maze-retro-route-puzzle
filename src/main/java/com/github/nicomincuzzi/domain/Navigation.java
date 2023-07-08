@@ -5,7 +5,8 @@ import com.github.nicomincuzzi.maze.Room;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
+
+import static java.util.UUID.randomUUID;
 
 public class Navigation {
 
@@ -25,7 +26,7 @@ public class Navigation {
             List<String> foundItems = roomMaze.searchItemsMaze(findingItems);
 
             GameResult gameResult = new GameResult(roomMaze.getId(), roomMaze.getName(), foundItems);
-            outputMaze.put(UUID.randomUUID().toString(), gameResult);
+            outputMaze.put(randomUUID().toString(), gameResult);
 
             mazeNavigation(roomMaze);
         }
@@ -33,29 +34,27 @@ public class Navigation {
     }
 
     private void mazeNavigation(Room roomMaze) {
-        Room room = mazeMap.getRooms().getRoomById(roomMaze.getId());
-
         if (roomMaze.getNorth() != null) {
             int nextRoom = roomMaze.getNorth();
-            room.setNorth(null);
+            roomMaze.setNorth(null);
             moveNextRoom(nextRoom);
         }
 
         if (roomMaze.getSouth() != null) {
             int nextRoom = roomMaze.getSouth();
-            room.setSouth(null);
+            roomMaze.setSouth(null);
             moveNextRoom(nextRoom);
         }
 
         if (roomMaze.getWest() != null) {
             int nextRoom = roomMaze.getWest();
-            room.setWest(null);
+            roomMaze.setWest(null);
             moveNextRoom(nextRoom);
         }
 
         if (roomMaze.getEast() != null) {
             int nextRoom = roomMaze.getEast();
-            room.setEast(null);
+            roomMaze.setEast(null);
             moveNextRoom(nextRoom);
         }
     }

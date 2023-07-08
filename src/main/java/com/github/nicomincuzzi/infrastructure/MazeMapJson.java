@@ -3,8 +3,8 @@ package com.github.nicomincuzzi.infrastructure;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.github.nicomincuzzi.domain.MazeMap;
 import com.github.nicomincuzzi.domain.Rooms;
+import com.github.nicomincuzzi.domain.Utensil;
 import com.github.nicomincuzzi.maze.Room;
-import com.github.nicomincuzzi.maze.Utensil;
 
 import java.util.List;
 
