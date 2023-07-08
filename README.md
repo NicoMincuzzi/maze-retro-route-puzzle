@@ -54,8 +54,7 @@ This file will look something like this:
 
 ```
 2
-Potted Plant
-Knife
+Potted Plant, Knife
 ```
 
 ## Goals

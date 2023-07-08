@@ -15,11 +15,8 @@ data class Room(
     fun searchItemsMaze(findingItems: List<String>): List<String> {
         val foundItems: MutableList<String> = ArrayList()
         for (item in findingItems) {
-            for (itemRoom in objects) {
-                if (itemRoom.isSameThan(item!!)) {
-                    foundItems.add(itemRoom.name)
-                }
-            }
+            objects.firstOrNull { it.isSameThan(item) }
+                    ?.let { u -> foundItems.add(u.name) }
         }
         if (foundItems.isEmpty()) foundItems.add("None")
         return foundItems

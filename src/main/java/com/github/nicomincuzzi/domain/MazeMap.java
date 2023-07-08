@@ -28,10 +28,6 @@ public class MazeMap {
         this.rooms = rooms;
     }
 
-    public static MazeMap empty() {
-        return new MazeMap(new Rooms());
-    }
-
     public static MazeMap byJsonFile() {
         InputStream input = MazeMap.class.getClassLoader().getResourceAsStream("map.json");
         try {
