@@ -1,6 +1,5 @@
 package com.github.nicomincuzzi.domain;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.github.nicomincuzzi.maze.Room;
 
 import java.util.ArrayList;

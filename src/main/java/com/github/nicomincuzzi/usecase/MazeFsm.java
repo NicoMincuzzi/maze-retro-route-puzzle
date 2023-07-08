@@ -1,4 +1,4 @@
-package com.github.nicomincuzzi.domain.fsm;
+package com.github.nicomincuzzi.usecase;
 
 public class MazeFsm <T>{
 	

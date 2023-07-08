@@ -1,8 +1,8 @@
 package com.github.nicomincuzzi.domain;
 
-import com.github.nicomincuzzi.domain.fsm.MazeFsm;
-import com.github.nicomincuzzi.domain.fsm.MazeState;
-import com.github.nicomincuzzi.domain.fsm.StartState;
+import com.github.nicomincuzzi.usecase.MazeFsm;
+import com.github.nicomincuzzi.usecase.MazeState;
+import com.github.nicomincuzzi.usecase.StartState;
 
 public class MazeRetroRoute {
 

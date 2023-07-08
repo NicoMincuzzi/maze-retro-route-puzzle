@@ -1,7 +1,7 @@
 package com.github.nicomincuzzi;
 
 import com.github.nicomincuzzi.domain.MazeRetroRoute;
-import com.github.nicomincuzzi.domain.fsm.MazeFsm;
+import com.github.nicomincuzzi.usecase.MazeFsm;
 
 public class Main {
     public static void main(String[] args) {

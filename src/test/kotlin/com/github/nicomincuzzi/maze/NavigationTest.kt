@@ -2,6 +2,7 @@ package com.github.nicomincuzzi.maze
 
 import com.github.nicomincuzzi.domain.MazeMap
 import com.github.nicomincuzzi.domain.Navigation
+import com.github.nicomincuzzi.domain.Rooms
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
@@ -10,22 +11,20 @@ class NavigationTest {
     @Test
     fun oneItemsIsFoundWithSuccess() {
         val findingItems = listOf("Knife")
-        val navigation = Navigation(findingItems, MazeMap.empty())
-        val utensil = Utensil(name = "Knife")
-        val roomMaze = Room(objects = listOf(utensil))
+        val room = Room(objects = listOf(Utensil(name = "Knife")))
 
-        val result = navigation.searchItemsMaze(roomMaze)
+        val result = Navigation(findingItems, MazeMap(Rooms(room))).searchItemsMaze(room)
+
         val expectedGameResult = result.entries.iterator().next().value
         Assertions.assertTrue(expectedGameResult.items.contains("Knife"))
     }
 
     @Test
     fun noItemsIsFound() {
-        val navigation = Navigation(emptyList(), MazeMap.empty())
-        val utensil = Utensil(name = "Knife")
-        val roomMaze = Room(objects = listOf(utensil))
+        val room = Room(objects = listOf(Utensil(name = "Knife")))
 
-        val result = navigation.searchItemsMaze(roomMaze)
+        val result = Navigation(emptyList(), MazeMap(Rooms(room))).searchItemsMaze(room)
+
         val expectedGameResult = result.entries.iterator().next().value
         Assertions.assertTrue(expectedGameResult.items.contains("None"))
     }

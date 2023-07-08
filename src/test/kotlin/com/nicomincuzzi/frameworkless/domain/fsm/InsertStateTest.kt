@@ -3,10 +3,11 @@ package com.nicomincuzzi.frameworkless.domain.fsm
 import com.github.nicomincuzzi.domain.MazeRetroRoute
 import com.github.nicomincuzzi.domain.MazeMap
 import com.github.nicomincuzzi.domain.Rooms
-import com.github.nicomincuzzi.domain.fsm.InsertState
-import com.github.nicomincuzzi.domain.fsm.LeaveState
-import com.github.nicomincuzzi.domain.fsm.PlayState
+import com.github.nicomincuzzi.usecase.InsertState
+import com.github.nicomincuzzi.usecase.LeaveState
+import com.github.nicomincuzzi.usecase.PlayState
 import com.github.nicomincuzzi.maze.Room
+import com.github.nicomincuzzi.maze.Utensil
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.mockito.ArgumentCaptor
@@ -37,9 +38,9 @@ class InsertStateTest {
 
         val scanner = mock(Scanner::class.java)
         `when`(scanner.nextLine()).thenReturn("3").thenReturn("Knife, Fork")
-        val mazeMap = MazeMap.empty()
+        val room = Room(objects = listOf(Utensil(name = "Knife")))
 
-        val insertState = InsertState(scanner, mazeMap)
+        val insertState = InsertState(scanner, MazeMap(Rooms(room)))
         insertState.enter(mazeRetroRoute)
         insertState.execute()
 

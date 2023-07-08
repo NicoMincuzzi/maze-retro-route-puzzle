@@ -1,12 +1,13 @@
 package com.nicomincuzzi.frameworkless.domain.fsm
 
-import com.github.nicomincuzzi.domain.MazeRetroRoute
 import com.github.nicomincuzzi.domain.MazeMap
-import com.github.nicomincuzzi.domain.fsm.LoseState
-import com.github.nicomincuzzi.domain.fsm.PlayState
-import com.github.nicomincuzzi.domain.fsm.WinState
+import com.github.nicomincuzzi.domain.MazeRetroRoute
+import com.github.nicomincuzzi.domain.Rooms
 import com.github.nicomincuzzi.maze.Room
 import com.github.nicomincuzzi.maze.Utensil
+import com.github.nicomincuzzi.usecase.LoseState
+import com.github.nicomincuzzi.usecase.PlayState
+import com.github.nicomincuzzi.usecase.WinState
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 import org.mockito.ArgumentCaptor
@@ -21,7 +22,7 @@ class PlayStateTest {
         val room = Room(objects = listOf(Utensil(name = "Knife")))
         val mazeRetroRoute = mock(MazeRetroRoute::class.java)
 
-        val playState = PlayState(listOf("Knife"), MazeMap.empty(), room)
+        val playState = PlayState(listOf("Knife"), MazeMap(Rooms(room)), room)
         playState.enter(mazeRetroRoute)
         playState.execute()
 
@@ -35,7 +36,7 @@ class PlayStateTest {
         val room = Room(objects = listOf(Utensil(name = "Knife")))
         val mazeRetroRoute = mock(MazeRetroRoute::class.java)
 
-        val playState = PlayState(listOf("Fork"), MazeMap.empty(), room)
+        val playState = PlayState(listOf("Fork"), MazeMap(Rooms(room)), room)
         playState.enter(mazeRetroRoute)
         playState.execute()
 

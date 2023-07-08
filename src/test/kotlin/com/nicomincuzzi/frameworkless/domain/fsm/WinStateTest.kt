@@ -1,6 +1,8 @@
 package com.github.nicomincuzzi.domain.fsm
 
 import com.github.nicomincuzzi.domain.MazeRetroRoute
+import com.github.nicomincuzzi.usecase.LeaveState
+import com.github.nicomincuzzi.usecase.WinState
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 import org.mockito.ArgumentCaptor

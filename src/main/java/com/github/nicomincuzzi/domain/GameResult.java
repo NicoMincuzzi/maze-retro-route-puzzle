@@ -1,6 +1,6 @@
 package com.github.nicomincuzzi.domain;
 
-import com.github.nicomincuzzi.domain.fsm.InsertState;
+import com.github.nicomincuzzi.usecase.InsertState;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

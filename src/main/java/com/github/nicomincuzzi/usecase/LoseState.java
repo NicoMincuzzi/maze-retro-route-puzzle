@@ -1,4 +1,4 @@
-package com.github.nicomincuzzi.domain.fsm;
+package com.github.nicomincuzzi.usecase;
 
 import com.github.nicomincuzzi.domain.MazeRetroRoute;
 import org.slf4j.Logger;
