@@ -1,7 +1,9 @@
 package com.github.nicomincuzzi.utils;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+
+import static java.util.Arrays.stream;
 
 public class StringHandler {
 
@@ -18,17 +20,6 @@ public class StringHandler {
     }
 
     public List<String> getListInputWords(String listWords) {
-        List<String> words = new ArrayList<>();
-
-        while (!listWords.isEmpty()) {
-            if (listWords.contains(",")) {
-                words.add(listWords.substring(listWords.lastIndexOf(",") + 2));
-                listWords = listWords.substring(0, listWords.lastIndexOf(","));
-            } else {
-                words.add(listWords);
-                listWords = "";
-            }
-        }
-        return words;
+        return stream(listWords.split(",")).map(String::trim).collect(Collectors.toList());
     }
 }
