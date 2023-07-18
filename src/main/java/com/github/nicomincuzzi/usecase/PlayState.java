@@ -4,6 +4,7 @@ import com.github.nicomincuzzi.domain.GameResult;
 import com.github.nicomincuzzi.domain.MazeRetroRoute;
 import com.github.nicomincuzzi.domain.MazeMap;
 import com.github.nicomincuzzi.domain.Navigation;
+import com.github.nicomincuzzi.domain.Utensils;
 import com.github.nicomincuzzi.maze.Room;
 
 import java.util.List;
@@ -12,11 +13,11 @@ import java.util.Map;
 public class PlayState implements MazeState<MazeRetroRoute> {
 
     private MazeRetroRoute maze;
-    private final List<String> findingItems;
+    private final Utensils findingItems;
     private final MazeMap mazeMap;
     private final Room roomMaze;
 
-    public PlayState(List<String> findingItems, MazeMap mazeMap, Room roomMaze) {
+    public PlayState(Utensils findingItems, MazeMap mazeMap, Room roomMaze) {
         this.findingItems = findingItems;
         this.mazeMap = mazeMap;
         this.roomMaze = roomMaze;

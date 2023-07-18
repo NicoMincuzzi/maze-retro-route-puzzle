@@ -1,6 +1,7 @@
 package com.github.nicomincuzzi.maze
 
 import com.github.nicomincuzzi.domain.Utensil
+import com.github.nicomincuzzi.domain.Utensils
 
 data class Room(
         val id: Int = 3,
@@ -12,12 +13,7 @@ data class Room(
         val objects: List<Utensil> = listOf()
 ) {
 
-    fun searchItemsMaze(findingItems: List<String>): List<String> {
-        val foundItems: MutableList<String> = ArrayList()
-        for (item in findingItems) {
-            objects.firstOrNull { it.isSameThan(item) }
-                    ?.let { u -> foundItems.add(u.name) }
-        }
-        return foundItems
+    fun searchItemsMaze(findingItems: Utensils): List<String> {
+        return findingItems.matchedItems(objects)
     }
 }

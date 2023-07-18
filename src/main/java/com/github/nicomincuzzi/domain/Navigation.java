@@ -11,11 +11,11 @@ import static java.util.UUID.randomUUID;
 public class Navigation {
 
     private final LinkedHashMap<String, GameResult> outputMaze;
-    private final List<String> findingItems;
+    private final Utensils findingItems;
     private final MazeMap mazeMap;
     private int counter;
 
-    public Navigation(List<String> findingItems, MazeMap mazeMap) {
+    public Navigation(Utensils findingItems, MazeMap mazeMap) {
         this.findingItems = findingItems;
         this.mazeMap = mazeMap;
         counter = findingItems.size();
