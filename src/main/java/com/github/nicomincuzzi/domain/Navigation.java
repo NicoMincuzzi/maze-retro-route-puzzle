@@ -1,7 +1,5 @@
 package com.github.nicomincuzzi.domain;
 
-import com.github.nicomincuzzi.maze.Room;
-
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;

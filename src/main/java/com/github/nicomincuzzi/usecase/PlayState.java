@@ -1,13 +1,12 @@
 package com.github.nicomincuzzi.usecase;
 
 import com.github.nicomincuzzi.domain.GameResult;
-import com.github.nicomincuzzi.domain.MazeRetroRoute;
 import com.github.nicomincuzzi.domain.MazeMap;
+import com.github.nicomincuzzi.domain.MazeRetroRoute;
 import com.github.nicomincuzzi.domain.Navigation;
+import com.github.nicomincuzzi.domain.Room;
 import com.github.nicomincuzzi.domain.Utensils;
-import com.github.nicomincuzzi.maze.Room;
 
-import java.util.List;
 import java.util.Map;
 
 public class PlayState implements MazeState<MazeRetroRoute> {

@@ -1,7 +1,5 @@
 package com.github.nicomincuzzi.domain;
 
-import com.github.nicomincuzzi.maze.Room;
-
 import java.util.ArrayList;
 import java.util.List;
 

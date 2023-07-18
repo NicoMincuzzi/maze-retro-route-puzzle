@@ -9,7 +9,7 @@ class NavigationTest {
     @Test
     fun oneItemsIsFoundWithSuccess() {
         val findingItems = Utensils(Utensil("Knife"))
-        val room = Room(objects = listOf(Utensil("Knife")))
+        val room = Room(0, "ignore", null, null, null, null, listOf(Utensil("Knife")))
 
         val result = Navigation(findingItems, MazeMap(Rooms(room))).searchItemsMaze(room)
 
@@ -19,7 +19,7 @@ class NavigationTest {
 
     @Test
     fun noItemsIsFound() {
-        val room = Room(objects = listOf(Utensil("Knife")))
+        val room = Room(0, "ignore", null, null, null, null, listOf(Utensil("Knife")))
 
         val result = Navigation(Utensils(), MazeMap(Rooms(room))).searchItemsMaze(room)
 

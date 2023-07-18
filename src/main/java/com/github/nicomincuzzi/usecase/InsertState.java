@@ -2,13 +2,11 @@ package com.github.nicomincuzzi.usecase;
 
 import com.github.nicomincuzzi.domain.MazeMap;
 import com.github.nicomincuzzi.domain.MazeRetroRoute;
+import com.github.nicomincuzzi.domain.Room;
 import com.github.nicomincuzzi.domain.Utensils;
-import com.github.nicomincuzzi.maze.Room;
-import com.github.nicomincuzzi.utils.StringHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.List;
 import java.util.Scanner;
 
 import static java.lang.Integer.parseInt;

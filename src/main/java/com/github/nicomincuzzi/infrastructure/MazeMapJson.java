@@ -2,9 +2,9 @@ package com.github.nicomincuzzi.infrastructure;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.github.nicomincuzzi.domain.MazeMap;
+import com.github.nicomincuzzi.domain.Room;
 import com.github.nicomincuzzi.domain.Rooms;
 import com.github.nicomincuzzi.domain.Utensil;
-import com.github.nicomincuzzi.maze.Room;
 
 import java.util.List;
 
@@ -13,10 +13,6 @@ import static java.util.stream.Collectors.toList;
 public class MazeMapJson {
     @JsonProperty
     private List<RoomJson> rooms;
-
-    public List<RoomJson> getRooms() {
-        return rooms;
-    }
 
     public MazeMap toMazeMap() {
         Room[] rooms = new Room[this.rooms.size()];
