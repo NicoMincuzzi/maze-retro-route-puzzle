@@ -4,16 +4,16 @@ import com.github.nicomincuzzi.usecase.InsertState;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.List;
 import java.util.Map;
 
 public class GameResult {
-    private int id;
-    private String room;
-    private List<String> items;
     private static final Logger logger = LoggerFactory.getLogger(InsertState.class);
 
-    public GameResult(int id, String room, List<String> items) {
+    private int id;
+    private String room;
+    private Utensils items;
+
+    public GameResult(int id, String room, Utensils items) {
         this.id = id;
         this.room = room;
         this.items = items;
@@ -27,7 +27,7 @@ public class GameResult {
         return room;
     }
 
-    public List<String> getItems() {
+    public Utensils getItems() {
         return items;
     }
 
@@ -39,8 +39,8 @@ public class GameResult {
         for (String idStepRoute : foundItems.keySet()) {
             String items = "None";
 
-            for (String item : foundItems.get(idStepRoute).getItems()) {
-                items = removeLastComma(item.concat(","));
+            for(Utensil item : foundItems.get(idStepRoute).getItems().getUtensils()) {
+                items = removeLastComma(item.getName().concat(","));
             }
 
             System.out.println("| " + foundItems.get(idStepRoute).getId() +

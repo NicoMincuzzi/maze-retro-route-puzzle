@@ -1,7 +1,6 @@
 package com.github.nicomincuzzi.domain;
 
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 
 import static java.util.UUID.randomUUID;
@@ -22,12 +21,12 @@ public class Navigation {
 
     public Map<String, GameResult> searchItemsMaze(Room roomMaze) {
         if (roomMaze != null) {
-            List<String> foundItems = roomMaze.searchItemsMaze(findingItems);
+            Utensils foundItems = roomMaze.searchItemsMaze(findingItems);
 
             GameResult gameResult = new GameResult(roomMaze.getId(), roomMaze.getName(), foundItems);
             outputMaze.put(randomUUID().toString(), gameResult);
 
-            if (!foundItems.isEmpty())
+            if (!foundItems.getUtensils().isEmpty())
                 counter--;
 
             mazeNavigation(roomMaze);

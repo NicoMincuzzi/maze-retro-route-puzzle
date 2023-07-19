@@ -5,6 +5,7 @@ import com.github.nicomincuzzi.domain.MazeMap;
 import com.github.nicomincuzzi.domain.MazeRetroRoute;
 import com.github.nicomincuzzi.domain.Navigation;
 import com.github.nicomincuzzi.domain.Room;
+import com.github.nicomincuzzi.domain.Utensil;
 import com.github.nicomincuzzi.domain.Utensils;
 
 import java.util.Map;
@@ -42,8 +43,8 @@ public class PlayState implements MazeState<MazeRetroRoute> {
 
     private boolean isFoundItem(Map<String, GameResult> resultOutput) {
         for (String idStepRoute : resultOutput.keySet()) {
-            for (String item : resultOutput.get(idStepRoute).getItems()) {
-                if (!item.equals("None"))
+            for (Utensil item : resultOutput.get(idStepRoute).getItems().getUtensils()) {
+                if (!item.getName().equals("None"))
                     return true;
             }
         }

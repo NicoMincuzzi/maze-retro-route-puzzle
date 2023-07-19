@@ -8,8 +8,12 @@ import static java.util.Arrays.stream;
 public class Utensils {
     private List<Utensil> utensils = new ArrayList<>();
 
-    public Utensils(Utensil... utensils) {
-        this.utensils = new ArrayList<>(List.of(utensils));
+    public List<Utensil> getUtensils() {
+        return utensils;
+    }
+
+    public Utensils(List<Utensil> utensils) {
+        this.utensils = utensils;
     }
 
     public Utensils(String listWords) {
@@ -23,14 +27,14 @@ public class Utensils {
         return utensils.size();
     }
 
-    public List<String> matchedItems(List<Utensil> objects) {
-        List<String> foundItems = new ArrayList<>();
+    public Utensils matchedItems(Utensils objects) {
+        List<Utensil> matchedItems = new ArrayList<>();
         for (Utensil item : utensils) {
-            objects.stream()
+            objects.getUtensils().stream()
                     .filter(it -> it.isSameThan(item.getName()))
                     .findFirst()
-                    .ifPresent(it -> foundItems.add(it.getName()));
+                    .ifPresent(it -> matchedItems.add(new Utensil(it.getName())));
         }
-        return foundItems;
+        return new Utensils(matchedItems);
     }
 }

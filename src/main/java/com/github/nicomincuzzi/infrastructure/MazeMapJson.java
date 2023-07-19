@@ -5,6 +5,7 @@ import com.github.nicomincuzzi.domain.MazeMap;
 import com.github.nicomincuzzi.domain.Room;
 import com.github.nicomincuzzi.domain.Rooms;
 import com.github.nicomincuzzi.domain.Utensil;
+import com.github.nicomincuzzi.domain.Utensils;
 
 import java.util.List;
 
@@ -23,7 +24,7 @@ public class MazeMapJson {
                     .map(it -> new Utensil(it.getName()))
                     .collect(toList());
 
-            rooms[i] = new Room(room.getId(), room.getName(), room.getNorth(), room.getSouth(), room.getEast(), room.getWest(), utensils);
+            rooms[i] = new Room(room.getId(), room.getName(), room.getNorth(), room.getSouth(), room.getEast(), room.getWest(), new Utensils(utensils));
         }
         return new MazeMap(new Rooms(rooms));
     }

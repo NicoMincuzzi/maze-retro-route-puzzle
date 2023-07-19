@@ -8,22 +8,22 @@ class NavigationTest {
 
     @Test
     fun oneItemsIsFoundWithSuccess() {
-        val findingItems = Utensils(Utensil("Knife"))
-        val room = Room(0, "ignore", null, null, null, null, listOf(Utensil("Knife")))
+        val findingItems = Utensils(listOf(Utensil("Knife")))
+        val room = Room(0, "ignore", null, null, null, null, Utensils(listOf(Utensil("Knife"))))
 
         val result = Navigation(findingItems, MazeMap(Rooms(room))).searchItemsMaze(room)
 
         val expectedGameResult = result.entries.iterator().next().value
-        assertTrue(expectedGameResult.items.contains("Knife"))
+        assertTrue(expectedGameResult.items.utensils[0].name == "Knife")
     }
 
     @Test
     fun noItemsIsFound() {
-        val room = Room(0, "ignore", null, null, null, null, listOf(Utensil("Knife")))
+        val room = Room(0, "ignore", null, null, null, null, Utensils(listOf(Utensil("Knife"))))
 
-        val result = Navigation(Utensils(), MazeMap(Rooms(room))).searchItemsMaze(room)
+        val result = Navigation(Utensils(emptyList()), MazeMap(Rooms(room))).searchItemsMaze(room)
 
         val expectedGameResult = result.entries.iterator().next().value
-        assertTrue(expectedGameResult.items.isEmpty())
+        assertTrue(expectedGameResult.items.utensils.isEmpty())
     }
 }

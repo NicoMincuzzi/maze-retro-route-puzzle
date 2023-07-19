@@ -15,10 +15,10 @@ class PlayStateTest {
 
     @Test
     fun winInPlayState() {
-        val room = Room(0, "ignore", null, null, null, null, listOf(Utensil("Knife")))
+        val room = Room(0, "ignore", null, null, null, null, Utensils(listOf(Utensil("Knife"))))
         val mazeRetroRoute = mock(MazeRetroRoute::class.java)
 
-        val playState = PlayState(Utensils(Utensil("Knife")), MazeMap(Rooms(room)), room)
+        val playState = PlayState(Utensils(listOf(Utensil("Knife"))), MazeMap(Rooms(room)), room)
         playState.enter(mazeRetroRoute)
         playState.execute()
 
@@ -29,10 +29,10 @@ class PlayStateTest {
 
     @Test
     fun loseInPlayState() {
-        val room = Room(0, "ignore", null, null, null, null, listOf(Utensil("Knife")))
+        val room = Room(0, "ignore", null, null, null, null, Utensils(listOf(Utensil("Knife"))))
         val mazeRetroRoute = mock(MazeRetroRoute::class.java)
 
-        val playState = PlayState(Utensils(Utensil("Fork")), MazeMap(Rooms(room)), room)
+        val playState = PlayState(Utensils(listOf(Utensil("Fork"))), MazeMap(Rooms(room)), room)
         playState.enter(mazeRetroRoute)
         playState.execute()
 

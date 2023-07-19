@@ -17,7 +17,7 @@ class InsertStateTest {
 
         val scanner = mock(Scanner::class.java)
         `when`(scanner.nextLine()).thenReturn("3").thenReturn("Knife")
-        val mazeMap = MazeMap(Rooms(Room(0, "ignore", null, null, null, null, emptyList())))
+        val mazeMap = MazeMap(Rooms(Room(0, "ignore", null, null, null, null, Utensils(emptyList()))))
 
         val insertState = InsertState(scanner, mazeMap)
         insertState.enter(mazeRetroRoute)
@@ -34,7 +34,7 @@ class InsertStateTest {
 
         val scanner = mock(Scanner::class.java)
         `when`(scanner.nextLine()).thenReturn("3").thenReturn("Knife, Fork")
-        val room = Room(0, "ignore", null, null, null, null, listOf(Utensil("Knife")))
+        val room = Room(0, "ignore", null, null, null, null, Utensils(listOf(Utensil("Knife"))))
 
         val insertState = InsertState(scanner, MazeMap(Rooms(room)))
         insertState.enter(mazeRetroRoute)
@@ -51,7 +51,7 @@ class InsertStateTest {
 
         val scanner = mock(Scanner::class.java)
         `when`(scanner.nextLine()).thenReturn("50").thenReturn("Knife, Fork")
-        val mazeMap = MazeMap(Rooms(Room(0, "ignore", null, null, null, null, emptyList())))
+        val mazeMap = MazeMap(Rooms(Room(0, "ignore", null, null, null, null, Utensils(emptyList()))))
 
         val insertState = InsertState(scanner, mazeMap)
         insertState.enter(mazeRetroRoute)

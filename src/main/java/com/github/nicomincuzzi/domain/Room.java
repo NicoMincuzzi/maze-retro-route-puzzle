@@ -10,16 +10,23 @@ public class Room {
     private Integer south;
     private Integer east;
     private Integer west;
-    private final List<Utensil> objects;
+    private final Utensils utensils;
 
-    public Room(int id, String name, Integer north, Integer south, Integer east, Integer west, List<Utensil> objects) {
+    public Room(int id,
+                String name,
+                Integer north,
+                Integer south,
+                Integer east,
+                Integer west,
+                Utensils utensils
+    ) {
         this.id = id;
         this.name = name;
         this.north = north;
         this.south = south;
         this.east = east;
         this.west = west;
-        this.objects = objects;
+        this.utensils = utensils;
     }
 
 
@@ -63,7 +70,7 @@ public class Room {
         this.west = west;
     }
 
-    public List<String> searchItemsMaze(Utensils findingItems) {
-        return findingItems.matchedItems(objects);
+    public Utensils searchItemsMaze(Utensils findingItems) {
+        return utensils.matchedItems(findingItems);
     }
 }
