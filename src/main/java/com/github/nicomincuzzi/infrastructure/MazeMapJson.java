@@ -35,13 +35,13 @@ public class MazeMapJson {
         @JsonProperty
         private String name;
         @JsonProperty
-        private int north;
+        private Integer north;
         @JsonProperty
-        private int south;
+        private Integer south;
         @JsonProperty
-        private int east;
+        private Integer east;
         @JsonProperty
-        private int west;
+        private Integer west;
         @JsonProperty
         private List<UtensilJson> objects;
 
@@ -53,19 +53,19 @@ public class MazeMapJson {
             return name;
         }
 
-        public int getNorth() {
+        public Integer getNorth() {
             return north;
         }
 
-        public int getSouth() {
+        public Integer getSouth() {
             return south;
         }
 
-        public int getEast() {
+        public Integer getEast() {
             return east;
         }
 
-        public int getWest() {
+        public Integer getWest() {
             return west;
         }
 

@@ -16,51 +16,52 @@ public class Navigation {
     }
 
     public Map<String, GameResult> searchItemsMaze(Utensils findingItems, Room roomMaze, int counter) {
-        if (roomMaze != null) {
-            Utensils foundItems = roomMaze.searchItemsMaze(findingItems);
-
-            GameResult gameResult = new GameResult(roomMaze.getId(), roomMaze.getName(), foundItems);
-            outputMaze.put(randomUUID().toString(), gameResult);
-
-            if (!foundItems.getUtensils().isEmpty())
-                counter--;
-
-            mazeNavigation(roomMaze, findingItems, counter);
+        if (roomMaze == null) {
+            return outputMaze;
         }
+
+        Utensils foundItems = roomMaze.searchItemsMaze(findingItems);
+
+        GameResult gameResult = new GameResult(roomMaze.getId(), roomMaze.getName(), foundItems);
+        outputMaze.put(randomUUID().toString(), gameResult);
+
+        if (!foundItems.getUtensils().isEmpty())
+            counter--;
+
+        if (counter != 0)
+            mazeNavigation(roomMaze, findingItems, counter);
+
         return outputMaze;
     }
 
     private void mazeNavigation(Room roomMaze, Utensils findingItems, int counter) {
-        if (counter == 0)
-            return;
-
+        Room room = Room.noExistingRoom();
         if (roomMaze.getNorth() != null) {
             int nextRoom = roomMaze.getNorth();
             roomMaze.setNorth(null);
-            moveNextRoom(nextRoom, findingItems, counter);
+            room = mazeMap.getRooms().getRoomById(nextRoom);
+            searchItemsMaze(findingItems, room, counter);
         }
 
         if (roomMaze.getSouth() != null) {
             int nextRoom = roomMaze.getSouth();
             roomMaze.setSouth(null);
-            moveNextRoom(nextRoom, findingItems, counter);
+            room = mazeMap.getRooms().getRoomById(nextRoom);
+            searchItemsMaze(findingItems, room, counter);
         }
 
         if (roomMaze.getWest() != null) {
             int nextRoom = roomMaze.getWest();
             roomMaze.setWest(null);
-            moveNextRoom(nextRoom, findingItems, counter);
+            room = mazeMap.getRooms().getRoomById(nextRoom);
+            searchItemsMaze(findingItems, room, counter);
         }
 
         if (roomMaze.getEast() != null) {
             int nextRoom = roomMaze.getEast();
             roomMaze.setEast(null);
-            moveNextRoom(nextRoom, findingItems, counter);
+            room = mazeMap.getRooms().getRoomById(nextRoom);
+            searchItemsMaze(findingItems, room, counter);
         }
-    }
-
-    private void moveNextRoom(int idNextRoom, Utensils findingItems, int counter) {
-        Room room = mazeMap.getRooms().getRoomById(idNextRoom);
-        searchItemsMaze(findingItems, room, counter);
     }
 }

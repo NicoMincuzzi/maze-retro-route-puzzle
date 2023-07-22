@@ -27,7 +27,6 @@ public class Room {
         this.utensils = utensils;
     }
 
-
     public int getId() {
         return id;
     }
@@ -68,7 +67,15 @@ public class Room {
         this.west = west;
     }
 
+    public static Room noExistingRoom() {
+        return new Room(-1, "No Room", -1, -1, -1, -1, null);
+    }
+
     public Utensils searchItemsMaze(Utensils findingItems) {
         return utensils.matchedItems(findingItems);
+    }
+
+    public boolean exist() {
+        return id != -1;
     }
 }
