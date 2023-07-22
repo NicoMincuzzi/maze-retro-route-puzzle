@@ -12,14 +12,12 @@ import java.util.Map;
 
 public class PlayState implements MazeState<MazeRetroRoute> {
 
+    private final Navigation navigation;
     private MazeRetroRoute maze;
-    private final Utensils findingItems;
-    private final MazeMap mazeMap;
     private final Room roomMaze;
 
-    public PlayState(Utensils findingItems, MazeMap mazeMap, Room roomMaze) {
-        this.findingItems = findingItems;
-        this.mazeMap = mazeMap;
+    public PlayState(Navigation navigation, Room roomMaze) {
+        this.navigation = navigation;
         this.roomMaze = roomMaze;
     }
 
@@ -30,9 +28,7 @@ public class PlayState implements MazeState<MazeRetroRoute> {
 
     @Override
     public void execute() {
-        Navigation navMap = new Navigation(findingItems, mazeMap);
-
-        Map<String, GameResult> foundItems = navMap.searchItemsMaze(roomMaze);
+        Map<String, GameResult> foundItems = navigation.searchItemsMaze(roomMaze);
 
         MazeState<MazeRetroRoute> state = isFoundItem(foundItems) ? new WinState() : new LoseState();
 

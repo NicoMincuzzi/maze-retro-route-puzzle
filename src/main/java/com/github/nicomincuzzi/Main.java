@@ -5,7 +5,11 @@ import com.github.nicomincuzzi.usecase.MazeFsm;
 
 public class Main {
     public static void main(String[] args) {
-        MazeRetroRoute mazeRoutePuzzle = new MazeRetroRoute(new MazeFsm<>());
-        mazeRoutePuzzle.runMazeRetroRoutePuzzle();
+        try {
+            MazeRetroRoute mazeRoutePuzzle = new MazeRetroRoute(new MazeFsm<>());
+            mazeRoutePuzzle.runMazeRetroRoutePuzzle();
+        } catch (Throwable t) {
+
+        }
     }
 }

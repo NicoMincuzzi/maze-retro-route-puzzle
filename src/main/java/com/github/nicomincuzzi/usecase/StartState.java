@@ -1,15 +1,13 @@
 package com.github.nicomincuzzi.usecase;
 
-import com.github.nicomincuzzi.domain.MazeRetroRoute;
 import com.github.nicomincuzzi.domain.MazeMap;
+import com.github.nicomincuzzi.domain.MazeRetroRoute;
 
 import java.util.Scanner;
 
 public class StartState implements MazeState<MazeRetroRoute> {
 
     private MazeRetroRoute maze;
-
-    Scanner scanner = new Scanner(System.in);
 
     @Override
     public void enter(MazeRetroRoute maze) {
@@ -18,9 +16,7 @@ public class StartState implements MazeState<MazeRetroRoute> {
 
     @Override
     public void execute() {
-        MazeMap mazeMap = MazeMap.byJsonFile();
-
-        maze.changeStateMazeFsm(new InsertState(scanner, mazeMap));
+        maze.changeStateMazeFsm(new InsertState(new Scanner(System.in), MazeMap.byJsonFile()));
     }
 
 }

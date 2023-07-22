@@ -1,35 +1,35 @@
 package com.github.nicomincuzzi.usecase;
 
-public class MazeFsm <T>{
-	
-	private MazeState<T> currentState;
-	private MazeState<T> previousState;
-	
-	//Represent the Finite State Machine
-	private T owner; 
+public class MazeFsm<T> {
 
-	public void startMazeRoutePuzzle(T o, MazeState<T> initialState) {
-		owner = o;
-		changeState(initialState);
-	}
+    private MazeState<T> currentState;
+    private MazeState<T> previousState;
 
-	public void changeState(MazeState<T> newState) {
-		previousState = currentState;
-		
-		if(previousState != null)
-			previousState.exit();
+    //Represent the Finite State Machine
+    private T owner;
 
-		currentState = newState;
-		
-		currentState.enter(owner);
-		
-		//Update the current state of the FSM. 
-		if (currentState != null) 
-			currentState.execute();
-	}
+    public void startMazeRoutePuzzle(T o, MazeState<T> initialState) {
+        owner = o;
+        changeState(initialState);
+    }
 
-	public void  revertToPreviousState() {
-		if (previousState != null)
-		  changeState(previousState);
-	}
+    public void changeState(MazeState<T> newState) {
+        previousState = currentState;
+
+        if (previousState != null)
+            previousState.exit();
+
+        currentState = newState;
+
+        currentState.enter(owner);
+
+        //Update the current state of the FSM.
+        if (currentState != null)
+            currentState.execute();
+    }
+
+    public void revertToPreviousState() {
+        if (previousState != null)
+            changeState(previousState);
+    }
 }

@@ -2,6 +2,7 @@ package com.github.nicomincuzzi.usecase;
 
 import com.github.nicomincuzzi.domain.MazeMap;
 import com.github.nicomincuzzi.domain.MazeRetroRoute;
+import com.github.nicomincuzzi.domain.Navigation;
 import com.github.nicomincuzzi.domain.Room;
 import com.github.nicomincuzzi.domain.Utensils;
 import org.slf4j.Logger;
@@ -45,6 +46,6 @@ public class InsertState implements MazeState<MazeRetroRoute> {
         System.out.println("Input objects to collect: ");
         String objToCollect = scanner.nextLine();
 
-        maze.changeStateMazeFsm(new PlayState(new Utensils(objToCollect), mazeMap, roomMaze));
+        maze.changeStateMazeFsm(new PlayState(new Navigation(new Utensils(objToCollect), mazeMap), roomMaze));
     }
 }
