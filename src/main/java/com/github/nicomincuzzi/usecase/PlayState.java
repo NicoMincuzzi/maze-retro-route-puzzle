@@ -14,10 +14,14 @@ public class PlayState implements MazeState<MazeRetroRoute> {
 
     private final Navigation navigation;
     private MazeRetroRoute maze;
+    private final Utensils findingItems;
     private final Room roomMaze;
+    private int counter;
 
-    public PlayState(Navigation navigation, Room roomMaze) {
+    public PlayState(Navigation navigation, Utensils findingItems, Room roomMaze) {
         this.navigation = navigation;
+        this.findingItems = findingItems;
+        counter = findingItems.size();
         this.roomMaze = roomMaze;
     }
 
@@ -28,7 +32,7 @@ public class PlayState implements MazeState<MazeRetroRoute> {
 
     @Override
     public void execute() {
-        Map<String, GameResult> foundItems = navigation.searchItemsMaze(roomMaze);
+        Map<String, GameResult> foundItems = navigation.searchItemsMaze(findingItems, roomMaze, counter);
 
         MazeState<MazeRetroRoute> state = isFoundItem(foundItems) ? new WinState() : new LoseState();
 

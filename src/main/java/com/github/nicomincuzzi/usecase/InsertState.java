@@ -46,6 +46,6 @@ public class InsertState implements MazeState<MazeRetroRoute> {
         System.out.println("Input objects to collect: ");
         String objToCollect = scanner.nextLine();
 
-        maze.changeStateMazeFsm(new PlayState(new Navigation(new Utensils(objToCollect), mazeMap), roomMaze));
+        maze.changeStateMazeFsm(new PlayState(new Navigation(mazeMap), new Utensils(objToCollect),roomMaze));
     }
 }

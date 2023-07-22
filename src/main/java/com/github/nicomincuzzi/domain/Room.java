@@ -1,7 +1,5 @@
 package com.github.nicomincuzzi.domain;
 
-import java.util.List;
-
 public class Room {
 
     private final int id;

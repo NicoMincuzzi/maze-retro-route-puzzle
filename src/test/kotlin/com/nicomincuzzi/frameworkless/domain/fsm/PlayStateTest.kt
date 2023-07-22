@@ -18,8 +18,8 @@ class PlayStateTest {
         val room = Room(0, "ignore", null, null, null, null, Utensils(listOf(Utensil("Knife"))))
         val mazeRetroRoute = mock(MazeRetroRoute::class.java)
 
-        val navigation = Navigation(Utensils(listOf(Utensil("Knife"))), MazeMap(Rooms(room)))
-        val playState = PlayState(navigation, room)
+        val navigation = Navigation(MazeMap(Rooms(room)))
+        val playState = PlayState(navigation, Utensils(listOf(Utensil("Knife"))), room)
         playState.enter(mazeRetroRoute)
         playState.execute()
 
@@ -33,8 +33,8 @@ class PlayStateTest {
         val room = Room(0, "ignore", null, null, null, null, Utensils(listOf(Utensil("Knife"))))
         val mazeRetroRoute = mock(MazeRetroRoute::class.java)
 
-        val navigation = Navigation(Utensils(listOf(Utensil("Fork"))), MazeMap(Rooms(room)))
-        val playState = PlayState(navigation, room)
+        val navigation = Navigation(MazeMap(Rooms(room)))
+        val playState = PlayState(navigation, Utensils(listOf(Utensil("Fork"))), room)
         playState.enter(mazeRetroRoute)
         playState.execute()
 
