@@ -1,5 +1,6 @@
 package com.github.nicomincuzzi.domain;
 
+import com.github.nicomincuzzi.infrastructure.CommandLineTable;
 import com.github.nicomincuzzi.usecase.InsertState;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,9 +33,9 @@ public class GameResult {
     }
 
     public static void show(Map<String, GameResult> foundItems) {
-        System.out.println("+----+-------------+--------------------+");
-        System.out.println("| ID | Room        | Object Collected   |");
-        System.out.println("+----+-------------+--------------------+");
+        CommandLineTable st = new CommandLineTable();
+        st.setShowVerticalLines(true);
+        st.setHeaders("ID", "Room", "Object Collected");
 
         for (String idStepRoute : foundItems.keySet()) {
             String items = "None";
@@ -43,11 +44,9 @@ public class GameResult {
                 items = removeLastComma(item.getName().concat(","));
             }
 
-            System.out.println("| " + foundItems.get(idStepRoute).getId() +
-                    "  | " + foundItems.get(idStepRoute).getRoom() +
-                    " | " + items + "|");
+            st.addRow(String.valueOf(foundItems.get(idStepRoute).getId()), foundItems.get(idStepRoute).getRoom(), items);
         }
-        System.out.println("+----+-------------+--------------------+");
+        st.print();
     }
 
     private static String removeLastComma(String listWords) {
