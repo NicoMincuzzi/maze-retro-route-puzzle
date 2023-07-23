@@ -1,7 +1,6 @@
 package com.github.nicomincuzzi.domain;
 
 public class Room {
-
     private final int id;
     private final String name;
     private Integer north;
@@ -10,14 +9,7 @@ public class Room {
     private Integer west;
     private final Utensils utensils;
 
-    public Room(int id,
-                String name,
-                Integer north,
-                Integer south,
-                Integer east,
-                Integer west,
-                Utensils utensils
-    ) {
+    public Room(int id, String name, Integer north, Integer south, Integer east, Integer west, Utensils utensils) {
         this.id = id;
         this.name = name;
         this.north = north;
@@ -73,9 +65,5 @@ public class Room {
 
     public Utensils searchItemsMaze(Utensils findingItems) {
         return utensils.matchedItems(findingItems);
-    }
-
-    public boolean exist() {
-        return id != -1;
     }
 }

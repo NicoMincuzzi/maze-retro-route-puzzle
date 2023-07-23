@@ -14,12 +14,13 @@ repositories {
 
 dependencies {
     implementation("org.slf4j:slf4j-api:1.7.30")
+    implementation("ch.qos.logback:logback-classic:1.4.6")
     implementation("com.fasterxml.jackson.core:jackson-databind:2.12.3")
     testImplementation(platform("org.junit:junit-bom:5.9.1"))
     testImplementation("org.junit.jupiter:junit-jupiter")
-    testImplementation ("org.hamcrest:hamcrest:2.2")
+    testImplementation("org.hamcrest:hamcrest:2.2")
     testImplementation("org.mockito:mockito-junit-jupiter:3.10.0")
-    testImplementation ("org.mockito:mockito-inline:3.10.0")
+    testImplementation("org.mockito:mockito-inline:3.10.0")
 }
 
 tasks.test {

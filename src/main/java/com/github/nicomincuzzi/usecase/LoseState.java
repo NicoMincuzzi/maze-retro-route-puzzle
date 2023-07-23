@@ -1,13 +1,9 @@
 package com.github.nicomincuzzi.usecase;
 
 import com.github.nicomincuzzi.domain.MazeRetroRoute;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class LoseState implements MazeState<MazeRetroRoute> {
     private MazeRetroRoute maze;
-
-    private static final Logger logger = LoggerFactory.getLogger(LoseState.class);
 
     @Override
     public void enter(MazeRetroRoute maze) {

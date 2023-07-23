@@ -1,18 +1,13 @@
 package com.github.nicomincuzzi.domain;
 
 import com.github.nicomincuzzi.infrastructure.CommandLineTable;
-import com.github.nicomincuzzi.usecase.InsertState;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.Map;
 
 public class GameResult {
-    private static final Logger logger = LoggerFactory.getLogger(InsertState.class);
-
-    private int id;
-    private String room;
-    private Utensils items;
+    private final int id;
+    private final String room;
+    private final Utensils items;
 
     public GameResult(int id, String room, Utensils items) {
         this.id = id;
@@ -40,7 +35,7 @@ public class GameResult {
         for (String idStepRoute : foundItems.keySet()) {
             String items = "None";
 
-            for(Utensil item : foundItems.get(idStepRoute).getItems().getUtensils()) {
+            for (Utensil item : foundItems.get(idStepRoute).getItems().getUtensils()) {
                 items = removeLastComma(item.getName().concat(","));
             }
 
