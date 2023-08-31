@@ -26,7 +26,7 @@ public class InsertState implements MazeState<MazeRetroRoute> {
     }
 
     @Override
-    public void execute() {
+    public void update() {
         System.out.println("Input start room ID: ");
         int roomNumber = parseInt(scanner.nextLine());
 

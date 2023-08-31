@@ -15,7 +15,7 @@ public class LeaveState implements MazeState<MazeRetroRoute> {
     }
 
     @Override
-    public void execute() {
+    public void update() {
         System.out.println("Press 'R' to restart or 'E' to exit: ");
         String objToCollect = scanner.nextLine();
 

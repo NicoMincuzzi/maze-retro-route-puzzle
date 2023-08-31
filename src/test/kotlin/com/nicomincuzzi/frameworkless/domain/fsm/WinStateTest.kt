@@ -16,7 +16,7 @@ internal class WinStateTest {
 
         val winState = WinState()
         winState.enter(mazeRetroRoute)
-        winState.execute()
+        winState.update()
 
         val argument: ArgumentCaptor<WinState> = ArgumentCaptor.forClass(WinState::class.java)
         verify(mazeRetroRoute).changeStateMazeFsm(argument.capture())

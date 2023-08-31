@@ -8,14 +8,13 @@ public class MazeFsm<T> {
     //Represent the Finite State Machine
     private T owner;
 
-    public void startMazeRoutePuzzle(T o, MazeState<T> initialState) {
+    public void startBy(T o, MazeState<T> initialState) {
         owner = o;
         changeState(initialState);
     }
 
     public void changeState(MazeState<T> newState) {
         previousState = currentState;
-
         if (previousState != null)
             previousState.exit();
 
@@ -23,9 +22,8 @@ public class MazeFsm<T> {
 
         currentState.enter(owner);
 
-        //Update the current state of the FSM.
         if (currentState != null)
-            currentState.execute();
+            currentState.update();
     }
 
     public void revertToPreviousState() {

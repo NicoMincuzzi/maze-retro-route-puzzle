@@ -31,7 +31,7 @@ public class PlayState implements MazeState<MazeRetroRoute> {
     }
 
     @Override
-    public void execute() {
+    public void update() {
         Map<String, GameResult> foundItems = navigation.searchItemsMaze(findingItems, roomMaze, counter);
 
         MazeState<MazeRetroRoute> state = isFoundItem(foundItems) ? new WinState() : new LoseState();

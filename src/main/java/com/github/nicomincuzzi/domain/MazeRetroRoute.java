@@ -12,8 +12,8 @@ public class MazeRetroRoute {
         this.mazeFsm = mazeFsm;
     }
 
-    public void runMazeRetroRoutePuzzle() {
-        mazeFsm.startMazeRoutePuzzle(this, new StartState());
+    public void run() {
+        mazeFsm.startBy(this, new StartState());
     }
 
     public void changeStateMazeFsm(MazeState<MazeRetroRoute> state) {

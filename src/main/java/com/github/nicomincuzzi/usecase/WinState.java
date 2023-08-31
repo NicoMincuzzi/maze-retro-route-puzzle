@@ -11,7 +11,7 @@ public class WinState implements MazeState<MazeRetroRoute> {
     }
 
     @Override
-    public void execute() {
+    public void update() {
         System.out.println("Cool! You have found new objects!");
         maze.changeStateMazeFsm(new LeaveState());
     }

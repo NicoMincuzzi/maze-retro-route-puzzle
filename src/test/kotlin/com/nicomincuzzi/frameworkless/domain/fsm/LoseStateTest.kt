@@ -16,7 +16,7 @@ internal class LoseStateTest {
 
         val loseState = LoseState()
         loseState.enter(mazeRetroRoute)
-        loseState.execute()
+        loseState.update()
 
         val argument: ArgumentCaptor<WinState> = ArgumentCaptor.forClass(WinState::class.java)
         Mockito.verify(mazeRetroRoute).changeStateMazeFsm(argument.capture())

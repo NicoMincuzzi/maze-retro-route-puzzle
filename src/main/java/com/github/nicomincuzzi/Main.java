@@ -11,8 +11,8 @@ public class Main {
 
     public static void main(String[] args) {
         try {
-            MazeRetroRoute mazeRoutePuzzle = new MazeRetroRoute(new MazeFsm<>());
-            mazeRoutePuzzle.runMazeRetroRoutePuzzle();
+            MazeRetroRoute mazeRetroRoute = new MazeRetroRoute(new MazeFsm<>());
+            mazeRetroRoute.run();
         } catch (Throwable t) {
             logger.error(t.getMessage(), t);
         }

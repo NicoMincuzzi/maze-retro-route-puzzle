@@ -15,7 +15,7 @@ public class StartState implements MazeState<MazeRetroRoute> {
     }
 
     @Override
-    public void execute() {
+    public void update() {
         maze.changeStateMazeFsm(new InsertState(new Scanner(System.in), MazeMap.byJsonFile()));
     }
 

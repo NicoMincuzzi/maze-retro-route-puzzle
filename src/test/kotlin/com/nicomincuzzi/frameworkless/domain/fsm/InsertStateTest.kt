@@ -21,7 +21,7 @@ class InsertStateTest {
 
         val insertState = InsertState(scanner, mazeMap)
         insertState.enter(mazeRetroRoute)
-        insertState.execute()
+        insertState.update()
 
         val argument: ArgumentCaptor<PlayState> = ArgumentCaptor.forClass(PlayState::class.java)
         verify(mazeRetroRoute).changeStateMazeFsm(argument.capture())
@@ -38,7 +38,7 @@ class InsertStateTest {
 
         val insertState = InsertState(scanner, MazeMap(Rooms(room)))
         insertState.enter(mazeRetroRoute)
-        insertState.execute()
+        insertState.update()
 
         val argument: ArgumentCaptor<PlayState> = ArgumentCaptor.forClass(PlayState::class.java)
         verify(mazeRetroRoute).changeStateMazeFsm(argument.capture())
@@ -55,7 +55,7 @@ class InsertStateTest {
 
         val insertState = InsertState(scanner, mazeMap)
         insertState.enter(mazeRetroRoute)
-        insertState.execute()
+        insertState.update()
 
         val argument: ArgumentCaptor<LeaveState> = ArgumentCaptor.forClass(LeaveState::class.java)
         verify(mazeRetroRoute).changeStateMazeFsm(argument.capture())
